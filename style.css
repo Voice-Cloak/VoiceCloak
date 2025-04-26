@@ -415,10 +415,10 @@ hr.major-divider {
     margin-bottom: 5px; /* 如果有多行信息 */
 }
 
-.audio {
+.audio-control {
     display: block;     /* 使播放器占据整行 */
     width: 100%;       /* 播放器宽度 */
-    max-width: 440px; /* 给播放器一个最大宽度，避免太长 */
+    max-width: 300px; /* 给播放器一个最大宽度，避免太长 */
     height: 45px;     /* 标准化播放器高度 */
     margin-bottom: 15px; /* 播放器之间的间距 */
     outline: none;
