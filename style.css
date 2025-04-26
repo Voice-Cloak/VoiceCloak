@@ -132,23 +132,23 @@ footer {
     margin: 0 auto;          /* Center the container */
     padding: 0 40px;         /* Horizontal padding INSIDE the container */
     display: flex;           /* Use Flexbox for layout */
-    justify-content: space-between; /* Push brand left, links right */
+    /* justify-content: space-between; Push brand left, links right */
     align-items: center;     /* Vertically center items */
 }
 
 .navbar-brand {
-    font-size: 1.75em;      /* Larger font size for brand */
+    font-size: 2.05em;      /* Larger font size for brand */
     font-weight: bold;
     flex-shrink: 0;        /* Prevent brand from shrinking */
     margin-right: 30px;    /* Space between brand and links */
 }
 
 .navbar-links {
-    display: grid;
+    margin-left: 200px;
+    display: flex;
     /* Adjust column count based on how many items you have */
-    grid-template-columns: repeat(9, auto); /* Creates 9 columns sized automatically */
-    gap: 15px 25px;       /* Row gap, Column gap */
-    text-align: left;     /* Align text within each grid cell */
+    gap: 35px;       /* Row gap, Column gap */
+    align-items: center;
 }
 
 .navbar-links a {
@@ -170,6 +170,42 @@ h1 {
     text-align: center;
     margin-bottom: 20px;
     color: #333;
+}
+
+/* ============================== */
+/* Notice Box Styling             */
+/* ============================== */
+
+.notice-box {
+    background-color: #e7f3fe; /* Light blue background */
+    border-left: 6px solid #2196F3; /* Blue left border for emphasis */
+    color: #31708f;          /* Text color that fits the blue theme */
+    padding: 15px 25px;      /* Inner padding */
+    margin-bottom: 40px;     /* Space below the notice, before the title */
+    border-radius: 4px;      /* Slightly rounded corners */
+    font-size: 1em;         /* Adjust font size if needed */
+    line-height: 1.6;
+}
+
+/* Style for multiple paragraphs within the notice box */
+.notice-box p {
+    margin-bottom: 10px; /* Space between paragraphs */
+}
+.notice-box p:last-child {
+    margin-bottom: 0; /* No bottom margin on the last paragraph */
+}
+
+/* Styling for the "Note:" text */
+.notice-box strong {
+   color: #1c5a80; /* Darker blue for the strong text */
+   font-weight: 800; /* Make it semi-bold or keep default bold */
+   font-size: 1.20em;
+}
+
+/* Optional: Specific adjustments if needed for the top notice */
+.notice-box.top-notice {
+    /* Add any top-specific styles here, e.g., different margin */
+    /* margin-top: 20px; */
 }
 
 /* You might want to add padding back to your main content area */
@@ -294,12 +330,12 @@ hr.major-divider {
 .section-header h2 {
     font-size: 1.85em;           /* 标题字号 */
     font-weight: bold;
-    color: #333;           /* 深色标题 */
+    color: #444;           /* 深色标题 */
     margin-bottom: 15px;      /* 标题和描述之间的间距 */
 }
 
 .section-header p {
-    font-size: 1.1em;           /* 描述字号 */
+    font-size: 1.09em;           /* 描述字号 */
     max-width: 800px;         /* 限制描述文字宽度 */
     margin-left: auto;
     margin-right: auto;       /* 使描述文字也居中 */
@@ -319,9 +355,10 @@ hr.major-divider {
 }
 
 .sample-description {
-    font-size: 1.05em;
+    font-size: 1.20em;
     font-weight: 750; /* Semi-bold */
-    color: #6d6d6d;
+    /* color: #6d6d6d; */
+    color: #17ac61;
     margin-bottom: 15px; /* 样本描述与网格之间的间距 */
     padding-bottom: 5px;
 }
@@ -333,7 +370,7 @@ hr.major-divider {
     grid-template-columns: 1fr 1fr 2fr;
     row-gap: 20px; /* 行之间的间距 */
     column-gap: 30px; /* 列之间的间距 */
-    border-top: 1px solid #ddd; /* 网格顶部的分隔线 */
+    /* border-top: 1px solid #ddd; 网格顶部的分隔线 */
     padding-top: 0px; /* 在顶部边框和表头之间加点空间 */
 }
 
@@ -373,7 +410,7 @@ hr.major-divider {
 }
 
 .audio-info .audio-label { /* 特指音频信息区的标签 */
-    font-size: 0.9em;
+    font-size: 0.85em;
     color: #525252;
     margin-bottom: 5px; /* 如果有多行信息 */
 }
@@ -381,7 +418,7 @@ hr.major-divider {
 .audio {
     display: block;     /* 使播放器占据整行 */
     width: 100%;       /* 播放器宽度 */
-    max-width: 400px; /* 给播放器一个最大宽度，避免太长 */
+    max-width: 440px; /* 给播放器一个最大宽度，避免太长 */
     height: 45px;     /* 标准化播放器高度 */
     margin-bottom: 15px; /* 播放器之间的间距 */
     outline: none;
@@ -410,14 +447,35 @@ hr.major-divider {
     font-weight: bolder; /* <-- 只给带有这个类的标签加粗 */
 }
 /* --- Source Column Specific Text Style --- */
-.source-cell .audio-content-text {
-    font-size: 0.85em;      /* 稍小一点的字号 */
+.source-cell .audio-context-text {
+    font-size: 0.90em;      /* 稍小一点的字号 */
+    font-family: 'Times New Roman', Times, serif; /* Times New Roman 字体 */
     font-weight: normal;    /* 正常粗细 */
-    color: #666;           /* 灰色文字 */
+    color: #313131;           /* 灰色文字 */
     margin-top: 8px;       /* 与上方播放器的间距 */
     margin-bottom: 10px;   /* 与单元格底部的间距 */
     line-height: 1.5;     /* 行高 */
     /* text-align: center; -- Optional: if you want it centered */
+}
+.reference-cell .audio-label {
+    font-size: 1.0em;
+    font-weight: normal; /* Semi-bold */
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    color: #4e4e4e;
+    margin-bottom: 5px; /* 标签和播放器之间的间距 */
+}
+
+/* --- Divider between samples within a block --- */
+hr.sample-divider {
+    border: 0;
+    height: 4px; /* Thinner line */
+    background-color: #cbcfd3; /* Lighter grey color */
+    margin: 30px 0; /* Adjust vertical spacing */
+    /* Optional: make it not full width */
+    /* width: 95%; */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
 }
 
 /* 响应式调整 (保持不变) */

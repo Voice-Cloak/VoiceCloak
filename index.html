@@ -23,14 +23,8 @@
             <div class="navbar-links">
                 <!-- Each link/group is an item in the grid -->
                 <a href="#abstract">Abstract</a>
-                <a href="#comparison">One-shot<br>Speaker<br>Adaptation</a> <!-- Use <br> for line breaks -->
-                <a href="#">Many-to-Many<br>VC</a>
-                <a href="#">Zero-shot<br>VC</a>
-                <a href="#">Zero-shot<br>Cross-lingual<br>VC</a>
-                <a href="#">DDDM-TTS</a>
-                <a href="#">DDDM-Mixer</a>
-                <a href="#">Ablation<br>Study</a>
-                <a href="#">Style<br>Control</a>
+                <a href="#comparison">Defense<br>Comparisons</a> <!-- Use <br> for line breaks -->
+                <a href="#ablation">Ablation<br>Studies</a>
             </div>
         </div>
     </nav>
@@ -39,6 +33,18 @@
     <hr class="nav-divider"> <!-- Optional visual divider -->
     
     <div class="main-content-area">
+        <!-- ↓↓↓ NEW Notice Block START ↓↓↓ -->
+        <div class="notice-box top-notice"> <!-- Added 'top-notice' for potential specific styling -->
+            <p>
+                <strong>Note:</strong> For the best listening experience, we recommend setting your <strong>system volume</strong> to around <strong>30%-35%</strong>.
+            </p>
+            <p>
+                Please be aware that the <strong>Source</strong> and <strong>Reference</strong> audio samples might be <strong>louder</strong>. Consider lowering the volume slider in the player controls for these samples to protect your hearing.
+            </p>
+            <!-- You can add more <p> tags here for multiple lines/points -->
+            <!-- <p>Another important piece of information.</p> -->
+        </div>
+
         <div class="paper-intro-section">
             <!-- Paper Title -->
             <h1 class="paper-title">
@@ -79,8 +85,10 @@
 
             <!-- 1. 章节标题和描述 (Section Header - Style like Fig 2) -->
             <div class="section-header"> <!-- 添加一个类来控制背景颜色 -->
-                <h2>主要对比实验 (Main Comparison Experiments)</h2>
-                <p>这里是一些简短的描述，说明本章节的实验设置或目的。</p>
+                <h2>Defense Effectiveness Comparison on Many-to-Many Voice Cloning</h2>
+                <p>All speakers are unseen during the synthesis model's training phase. 
+                    For fair comparison, all baseline methods are evaluated under same settings.
+                    We conducted same-gender voice conversions (e.g., male-to-male, female-to-female) as this typically yields more realistic generation results in standard VC.</p>
             </div>
 
             <!-- 2. 第一个对比样本块 (Sample Block 1) -->
@@ -97,22 +105,27 @@
                     <!-- Grid Content Row: Source Cell -->
                     <div class="grid-cell source-cell">
                         <div class="audio-info">
-                            <p class="audio-label">Text [Description]: [源文本描述或内容]</p>
+                            <p class="audio-label">id: 3000</p>
                         </div>
                         <audio controls>
-                            <source src="samples/x_src.wav" type="audio/wav">
+                            <source src="samples/Source/male_src_3000_15664_000003_000004.wav" type="audio/wav">
                             Your browser does not support the audio element.
                         </audio>
-                        <p class="audio-context-text">这是解释文字的具体内容</p>
+                        <p class="audio-context-text">Prompt: Only a little food will be required.</p>
                     </div>
 
                     <!-- Grid Content Row: Reference Cell -->
                     <div class="grid-cell reference-cell">
                         <div class="audio-info">
-                            <p class="audio-label">Description: [目标说话人/参考语音描述]</p>
+                            <p class="audio-label">id: 174</p>
                         </div>
                         <audio controls>
-                            <source src="audio/sample1_reference.wav" type="audio/wav">
+                            <source src="samples/Reference/174_50561_000043_000002.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="audio-label">Adversarial Ref.</p>
+                        <audio controls>
+                            <source src="samples/x_adv/174_50561_000043_000002.wav" type="audio/wav">
                             Your browser does not support the audio element.
                         </audio>
                     </div>
@@ -123,10 +136,10 @@
                         <div class="conversion-methods-grid">
                             <!-- GT -->
                             <div class="conversion-method">
-                                <p class="audio-label">GT</p>
+                                <p class="audio-label">Undefened</p>
                                 <!-- REMOVED wrapper div -->
                                 <audio controls>
-                                    <source src="audio/sample1_conversion_gt.mp3" type="audio/wav">
+                                    <source src="samples/Normal_convert/174_50561_000043_000002.wav" type="audio/wav">
                                     Your browser does not support the audio element.
                                 </audio>
                             </div>
@@ -136,7 +149,7 @@
                                 <p class="audio-label">Random Noise</p>
                                 <!-- REMOVED wrapper div -->
                                 <audio controls>
-                                    <source src="audio/sample1_conversion_random.mp3" type="audio/wav">
+                                    <source src="samples/RandomNoise/174_50561_000043_000002.wav" type="audio/wav">
                                     Your browser does not support the audio element.
                                 </audio>
                             </div>
@@ -145,7 +158,7 @@
                                 <p class="audio-label">Attack-VC</p>
                                 <!-- REMOVED wrapper div -->
                                 <audio controls>
-                                    <source src="audio/sample1_conversion_attackvc.mp3" type="audio/wav">
+                                    <source src="samples/Attack-VC/174_50561_000043_000002.wav" type="audio/wav">
                                     Your browser does not support the audio element.
                                 </audio>
                             </div>
@@ -154,7 +167,7 @@
                                 <p class="audio-label">VoicePrivacy</p>
                                 <!-- REMOVED wrapper div -->
                                 <audio controls>
-                                    <source src="audio/sample1_conversion_voiceprivacy.mp3" type="audio/wav">
+                                    <source src="samples/VoicePrivacy/174_50561_000043_000002.wav" type="audio/wav">
                                     Your browser does not support the audio element.
                                 </audio>
                             </div>
@@ -163,7 +176,7 @@
                                 <p class="audio-label">VoiceGuard</p>
                                 <!-- REMOVED wrapper div -->
                                 <audio controls>
-                                    <source src="audio/sample1_conversion_voiceguard.mp3" type="audio/wav">
+                                    <source src="samples/VoiceGuard/174_50561_000000_000000.wav" type="audio/wav">
                                     Your browser does not support the audio element.
                                 </audio>
                             </div>
@@ -171,7 +184,104 @@
                             <div class="conversion-method">
                                 <p class="audio-label highlight-label">VoiceCloak</p>
                                 <audio controls>
-                                    <source src="audio/sample1_conversion_ours.mp3" type="audio/wav">
+                                    <source src="samples/VoiceCloak/174_50561_000043_000002.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- padding -->
+                            <div class="conversion-method"></div>
+                        </div> <!-- end .conversion-methods-grid -->
+                    </div> <!-- end .conversion-cell -->
+                </div><!-- end .audio-grid -->
+
+                <hr class="sample-divider"> <!-- Optional divider between samples -->
+                
+                <!-- 2. 第二个对比样本块 (Sample Block 2) -->
+                <div class="audio-grid">
+
+                    <!-- Grid Content Row: Source Cell (Set 2) -->
+                    <div class="grid-cell source-cell">
+                        <div class="audio-info">
+                            <p class="audio-label">id: 3000</p>
+                        </div>
+                        <audio controls>
+                            <source src="samples/Source/male_src_3000_15664_000003_000004.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="audio-context-text">Prompt: Only a little food will be required.</p>
+                    </div>
+
+                    <!-- Grid Content Row: Reference Cell -->
+                    <div class="grid-cell reference-cell">
+                        <div class="audio-info">
+                            <p class="audio-label">id: 2902</p>
+                        </div>
+                        <audio controls>
+                            <source src="samples/Reference/2902_9008_000044_000001.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="audio-label">Adversarial Ref.</p>
+                        <audio controls>
+                            <source src="samples/x_adv/2902_9008_000044_000001.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <!-- Grid Content Row: Conversion Cell -->
+                    <div class="grid-cell conversion-cell">
+                        <!-- Conversion 方法的内部网格 -->
+                        <div class="conversion-methods-grid">
+                            <!-- GT -->
+                            <div class="conversion-method">
+                                <p class="audio-label">Undefened</p>
+                                <!-- REMOVED wrapper div -->
+                                <audio controls>
+                                    <source src="samples/Normal_convert/2902_9006_000011_000000.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <div class="conversion-method"></div>
+                            <!-- Random -->
+                            <div class="conversion-method">
+                                <p class="audio-label">Random Noise</p>
+                                <!-- REMOVED wrapper div -->
+                                <audio controls>
+                                    <source src="samples/RandomNoise/2902_9008_000044_000001.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- Attack-VC -->
+                            <div class="conversion-method">
+                                <p class="audio-label">Attack-VC</p>
+                                <!-- REMOVED wrapper div -->
+                                <audio controls>
+                                    <source src="samples/Attack-VC/2902_9008_000044_000001.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- VoicePrivacy -->
+                            <div class="conversion-method">
+                                <p class="audio-label">VoicePrivacy</p>
+                                <!-- REMOVED wrapper div -->
+                                <audio controls>
+                                    <source src="samples/VoicePrivacy/2902_9008_000044_000001.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- VoiceGuard -->
+                            <div class="conversion-method">
+                                <p class="audio-label">VoiceGuard</p>
+                                <!-- REMOVED wrapper div -->
+                                <audio controls>
+                                    <source src="samples/VoiceGuard/2902_9008_000039_000001.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- Ours -->
+                            <div class="conversion-method">
+                                <p class="audio-label highlight-label">VoiceCloak</p>
+                                <audio controls>
+                                    <source src="samples/VoiceCloak/2902_9008_000044_000001.wav" type="audio/wav">
                                     Your browser does not support the audio element.
                                 </audio>
                             </div>
@@ -181,57 +291,211 @@
                     </div> <!-- end .conversion-cell -->
                 </div><!-- end .audio-grid -->
             </div> <!-- end .sample-block -->
-
-            <!-- 3. 可以复制上面的 .sample-block 来添加更多对比样本 -->
-            <!--
-            <div class="sample-block">
-                <h3 class="sample-description">样本 2: ...</h3>
+            
+        
+            <!-- 2. 第二个对比样本块 (Sample Block 2) -->
+            <div class="comparison-sample-block">
+                <!-- 可选：当前样本的文字描述 -->
+                <h3 class="sample-description">Female-to-Female</h3>
+                <!-- 音频内容的网格布局 -->
                 <div class="audio-grid">
-                    ... (类似的内容，替换文件名和描述) ...
-                </div>
-            </div>
-            -->
+                    <!-- Grid Header Row -->
+                    <div class="grid-header source-header">Source</div>
+                    <div class="grid-header reference-header">Reference</div>
+                    <div class="grid-header conversion-header">Conversion</div>
 
+                    <!-- Grid Content Row: Source Cell -->
+                    <div class="grid-cell source-cell">
+                        <div class="audio-info">
+                            <p class="audio-label">id: 6345</p>
+                        </div>
+                        <audio controls>
+                            <source src="samples/Source/female_6345_93306_000023_000001.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="audio-context-text">Prompt: I don't understand a single word you say!</p>
+                    </div>
+
+                    <!-- Grid Content Row: Reference Cell -->
+                    <div class="grid-cell reference-cell">
+                        <div class="audio-info">
+                            <p class="audio-label">id: 1988</p>
+                        </div>
+                        <audio controls>
+                            <source src="samples/Reference/1988_147956_000009_000007.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="audio-label">Adversarial Ref.</p>
+                        <audio controls>
+                            <source src="samples/x_adv/1988_147956_000009_000007.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <!-- Grid Content Row: Conversion Cell -->
+                    <div class="grid-cell conversion-cell">
+                        <!-- Conversion 方法的内部网格 -->
+                        <div class="conversion-methods-grid">
+                            <!-- GT -->
+                            <div class="conversion-method">
+                                <p class="audio-label">Undefened</p>
+                                <!-- REMOVED wrapper div -->
+                                <audio controls>
+                                    <source src="samples/Normal_convert/1988_147956_000009_000007.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <div class="conversion-method"></div>
+                            <!-- Random -->
+                            <div class="conversion-method">
+                                <p class="audio-label">Random Noise</p>
+                                <!-- REMOVED wrapper div -->
+                                <audio controls>
+                                    <source src="samples/RandomNoise/1988_147956_000009_000007.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- Attack-VC -->
+                            <div class="conversion-method">
+                                <p class="audio-label">Attack-VC</p>
+                                <!-- REMOVED wrapper div -->
+                                <audio controls>
+                                    <source src="samples/Attack-VC/1988_147956_000009_000007.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- VoicePrivacy -->
+                            <div class="conversion-method">
+                                <p class="audio-label">VoicePrivacy</p>
+                                <!-- REMOVED wrapper div -->
+                                <audio controls>
+                                    <source src="samples/VoicePrivacy/1988_147956_000009_000007.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- VoiceGuard -->
+                            <div class="conversion-method">
+                                <p class="audio-label">VoiceGuard</p>
+                                <!-- REMOVED wrapper div -->
+                                <audio controls>
+                                    <source src="samples/VoiceGuard/1988_147956_000019_000000.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- Ours -->
+                            <div class="conversion-method">
+                                <p class="audio-label highlight-label">VoiceCloak</p>
+                                <audio controls>
+                                    <source src="samples/VoiceCloak/1988_147956_000009_000007.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- padding -->
+                            <div class="conversion-method"></div>
+                        </div> <!-- end .conversion-methods-grid -->
+                    </div> <!-- end .conversion-cell -->
+                </div><!-- end .audio-grid -->
+
+                <hr class="sample-divider"> <!-- Optional divider between samples -->
+                
+                <!-- 2. 第二个对比样本块 (Sample Block 2) -->
+                <div class="audio-grid">
+
+                    <!-- Grid Content Row: Source Cell (Set 2) -->
+                    <div class="grid-cell source-cell">
+                        <div class="audio-info">
+                            <p class="audio-label">id: 6345</p>
+                        </div>
+                        <audio controls>
+                            <source src="samples/Source/female_6345_93306_000023_000001.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="audio-context-text">Prompt: I don't understand a single word you say!</p>
+                    </div>
+
+                    <!-- Grid Content Row: Reference Cell -->
+                    <div class="grid-cell reference-cell">
+                        <div class="audio-info">
+                            <p class="audio-label">id: 6319</p>
+                        </div>
+                        <audio controls>
+                            <source src="samples/Reference/6319_64726_000010_000007.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="audio-label">Adversarial Ref.</p>
+                        <audio controls>
+                            <source src="samples/x_adv/6319_64726_000010_000007.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <!-- Grid Content Row: Conversion Cell -->
+                    <div class="grid-cell conversion-cell">
+                        <!-- Conversion 方法的内部网格 -->
+                        <div class="conversion-methods-grid">
+                            <!-- GT -->
+                            <div class="conversion-method">
+                                <p class="audio-label">Undefened</p>
+                                <!-- REMOVED wrapper div -->
+                                <audio controls>
+                                    <source src="samples/Normal_convert/6319_64726_000010_000007.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <div class="conversion-method"></div>
+                            <!-- Random -->
+                            <div class="conversion-method">
+                                <p class="audio-label">Random Noise</p>
+                                <!-- REMOVED wrapper div -->
+                                <audio controls>
+                                    <source src="samples/RandomNoise/6319_64726_000010_000007.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- Attack-VC -->
+                            <div class="conversion-method">
+                                <p class="audio-label">Attack-VC</p>
+                                <!-- REMOVED wrapper div -->
+                                <audio controls>
+                                    <source src="samples/Attack-VC/6319_64726_000010_000007.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- VoicePrivacy -->
+                            <div class="conversion-method">
+                                <p class="audio-label">VoicePrivacy</p>
+                                <!-- REMOVED wrapper div -->
+                                <audio controls>
+                                    <source src="samples/VoicePrivacy/6319_64726_000010_000007.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- VoiceGuard -->
+                            <div class="conversion-method">
+                                <p class="audio-label">VoiceGuard</p>
+                                <!-- REMOVED wrapper div -->
+                                <audio controls>
+                                    <source src="samples/VoiceGuard/6319_64726_000016_000003.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- Ours -->
+                            <div class="conversion-method">
+                                <p class="audio-label highlight-label">VoiceCloak</p>
+                                <audio controls>
+                                    <source src="samples/VoiceCloak/6319_64726_000010_000007.wav" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- padding -->
+                            <div class="conversion-method"></div>
+                        </div> <!-- end .conversion-methods-grid -->
+                    </div> <!-- end .conversion-cell -->
+                </div><!-- end .audio-grid -->
+            </div> <!-- end .sample-block -->
         </section> <!-- end .comparison-section -->
 
-        <div class="audio-pair">
-            <h3>Sample 1: [Description, e.g., Naturalness Comparison]</h3>
-            <p><strong>Baseline:</strong></p>
-            <audio controls>
-                <source src="audio/sample1_baseline.mp3" type="audio/mpeg"> <!-- Make sure path and type are correct -->
-                <!-- You can add more <source> tags for different formats if needed -->
-                <!-- <source src="audio/sample1_baseline.ogg" type="audio/ogg"> -->
-                Your browser does not support the audio element.
-            </audio>
-
-            <p><strong>Ours:</strong></p>
-            <audio controls>
-                <source src="audio/sample1_ours.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-        </div>
-
-        <div class="audio-pair">
-            <h3>Sample 2: [Description, e.g., Timbre Comparison with Reference]</h3>
-            <p><strong>Reference:</strong></p>
-            <audio controls>
-                <source src="audio/sample2_reference.mp3" type="audio/mpeg"> <!-- Assuming you have reference files -->
-                Your browser does not support the audio element.
-            </audio>
-
-            <p><strong>Baseline:</strong></p>
-            <audio controls>
-                <source src="audio/sample2_baseline.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-
-            <p><strong>Ours:</strong></p>
-            <audio controls>
-                <source src="audio/sample2_ours.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-        </div>
-
+    
         <!-- === Add more divs like the one above for each sample/comparison === -->
 
 
@@ -247,9 +511,9 @@
         <h4>VoiceCloak</h4> <!-- Optional Title for the Sidebar -->
         <ul>
             <li><a href="#abstract">Abstract</a></li>
-            <li><a href="#comparison">Comparison Experiments</a></li>
+            <li><a href="#comparison">Defense Comparisons</a></li>
             <!-- Add links corresponding to the IDs of your sections -->
-            <li><a href="#ablation">Ablation Study</a></li>
+            <li><a href="#ablation">Ablation Studies</a></li>
             <li><a href="#conclusion">Conclusion</a></li>
             <!-- Add more links as needed -->
         </ul>
