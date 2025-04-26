@@ -13,6 +13,26 @@
         .audio-pair h3 { margin-bottom: 0.5em; }
         audio { margin-top: 5px; width: 80%; max-width: 400px; } /* Basic audio player styling */
     </style>
+
+    <!-- ↓↓↓ Add MathJax Configuration and Script ↓↓↓ -->
+    <script>
+    MathJax = {
+        tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']], // Use $...$ for inline math
+        displayMath: [['$$', '$$'], ['\\[', '\\]']], // Use $$...$$ for display math
+        processEscapes: true, // Allow \$ to display a literal dollar sign
+        tags: 'ams' // Use AMS numbering convention if needed
+        },
+        svg: {
+        fontCache: 'global' // Use global font cache for better performance
+        }
+    };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    // Using the v3 tex-svg component from CDN
+    </script>
+    <!-- ↑↑↑ End MathJax Script ↑↑↑ -->
 </head>
 <body>
     <nav class="navbar">
@@ -495,10 +515,321 @@
             </div> <!-- end .sample-block -->
         </section> <!-- end .comparison-section -->
 
-    
-        <!-- === Add more divs like the one above for each sample/comparison === -->
+        <!-- ============================== -->
+        <!-- 消融研究章节 (Ablation Studies Section) -->
+        <!-- ============================== -->
+        <hr class="major-divider"> <!-- Divider between major sections -->
+        
+        <section class="ablation-section" id="ablation"> <!-- Added ID for linking -->
+            <!-- 1. 章节标题和描述 (Simple H2 Title) -->
+            <div class="section-header"> <!-- Re-using existing style for consistency -->
+                <h2>Ablation Studies</h2>
+                <p></p> <!-- Optional description -->
+            </div>    
+            
+            <!-- 2. 第一个消融样本块: Identity Obfuscation -->
+            <div class="comparison-sample-block"> <!-- Reuse existing block style -->
+                <h3 class="sample-description">Identity Obfuscation</h3> <!-- Sub-section title -->
 
+                <!-- 消融研究的音频网格布局 (2 Columns: Source | Conversion) -->
+                <div class="audio-grid ablation-grid"> <!-- Add specific class 'ablation-grid' -->
 
+                    <!-- Grid Header Row -->
+                    <div class="grid-header source-header">Source</div>
+                    <div class="grid-header conversion-header">Conversion</div> <!-- Header now spans wider area -->
+
+                    <!-- Grid Content Row: Source Cell -->
+                    <div class="grid-cell source-cell">
+                        <div class="audio-info">
+                            <p class="audio-label">id: 6345</p> <!-- *** CHANGE *** -->
+                        </div>
+                        <audio controls class="audio-control">
+                            <source src="samples/Source/female_6345_93306_000023_000001.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="audio-context-text">Prompt: I don't understand a single word you say!</p> <!-- *** CHANGE *** -->
+                    </div>
+
+                    <!-- Grid Content Row: Conversion Cell -->
+                    <div class="grid-cell conversion-cell">
+                        <!-- Conversion 方法的内部网格 (2 columns) -->
+                        <div class="conversion-methods-grid ablation-methods-grid"> <!-- Add 'ablation-methods-grid' -->
+                            <!-- Undefened -->
+                            <div class="conversion-method">
+                                <p class="audio-label">Undefened (id: 1462)</p> <!-- *** CHANGE ID *** -->
+                                <audio controls class="audio-control">
+                                    <source src="samples/ablation/vc_1462.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- Ours -->
+                            <div class="conversion-method">
+                                <p class="audio-label highlight-label">VoiceCloak</p> <!-- Assuming 'Ours' is highlighted -->
+                                <audio controls class="audio-control">
+                                    <source src="samples/ablation/ours_1462.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- Lid -->
+                            <div class="conversion-method">
+                                <p class="audio-label">$\mathcal{L}_{ID}$</p> <!-- Using subscript tag -->
+                                <audio controls class="audio-control">
+                                    <source src="samples/ablation/id_only_1462.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- Lid w/o Gender -->
+                            <div class="conversion-method">
+                                <p class="audio-label">$\mathcal{L}_{ID}$ w/o. Gender</p>
+                                <audio controls class="audio-control">
+                                    <source src="samples/ablation/woGender_1462.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- Lctx -->
+                            <div class="conversion-method">
+                                <p class="audio-label">$\mathcal{L}_{ctx}$</p>
+                                <audio controls class="audio-control">
+                                    <source src="samples/ablation/ctx_1462.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- Lid+Lctx -->
+                            <div class="conversion-method">
+                                <p class="audio-label">$\mathcal{L}_{ID} + \mathcal{L}_{ctx}$</p>
+                                <audio controls class="audio-control">
+                                    <source src="samples/ablation/identity_1462.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        </div> <!-- end .conversion-methods-grid -->
+                    </div> <!-- end .conversion-cell -->
+                </div><!-- end .audio-grid .ablation-grid -->
+
+                <hr class="sample-divider"> <!-- Optional divider between samples -->
+                <!-- 消融研究的音频网格布局 (2 Columns: Source | Conversion) -->
+                <div class="audio-grid ablation-grid"> <!-- Add specific class 'ablation-grid' -->
+                    <!-- Grid Content Row: Source Cell -->
+                    <div class="grid-cell source-cell">
+                        <div class="audio-info">
+                            <p class="audio-label">id: 3000</p> <!-- *** CHANGE *** -->
+                        </div>
+                        <audio controls class="audio-control">
+                            <source src="samples/Source/male_src_3000_15664_000003_000004.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="audio-context-text">Prompt: Only a little food will be required.</p> <!-- *** CHANGE *** -->
+                    </div>  
+
+                    <!-- Grid Content Row: Conversion Cell -->
+                    <div class="grid-cell conversion-cell">
+                        <!-- Conversion 方法的内部网格 (2 columns) -->
+                        <div class="conversion-methods-grid ablation-methods-grid"> <!-- Add 'ablation-methods-grid' -->
+                            <!-- Undefened -->
+                            <div class="conversion-method">
+                                <p class="audio-label">Undefened (id: 2428)</p> <!-- *** CHANGE ID *** -->
+                                <audio controls class="audio-control">
+                                    <source src="samples/ablation/vc_2428.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- Ours -->
+                            <div class="conversion-method">
+                                <p class="audio-label highlight-label">VoiceCloak</p> <!-- Assuming 'Ours' is highlighted -->
+                                <audio controls class="audio-control">
+                                    <source src="samples/ablation/ours_2428.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- Lid -->
+                            <div class="conversion-method">
+                                <p class="audio-label">$\mathcal{L}_{ID}$</p> <!-- Using subscript tag -->
+                                <audio controls class="audio-control">
+                                    <source src="samples/ablation/id_only_2428.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- Lid w/o Gender -->
+                            <div class="conversion-method">
+                                <p class="audio-label">$\mathcal{L}_{ID}$ w/o. Gender</p>
+                                <audio controls class="audio-control">
+                                    <source src="samples/ablation/woGender_2428.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- Lctx -->
+                            <div class="conversion-method">
+                                <p class="audio-label">$\mathcal{L}_{ctx}$</p>
+                                <audio controls class="audio-control">
+                                    <source src="samples/ablation/ctx_2428.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- Lid+Lctx -->
+                            <div class="conversion-method">
+                                <p class="audio-label">$\mathcal{L}_{ID} + \mathcal{L}_{ctx}$</p>
+                                <audio controls class="audio-control">
+                                    <source src="samples/ablation/identity_2428.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        </div> <!-- end .conversion-methods-grid -->
+                    </div> <!-- end .conversion-cell -->
+                </div><!-- end .audio-grid .ablation-grid -->
+                
+            </div> <!-- end .comparison-sample-block -->
+
+            <!-- 3. 第二个消融样本块: Perceptual Fidelity Degradation-->
+            <div class="comparison-sample-block"> <!-- Reuse existing block style -->
+                <h3 class="sample-description">Perceptual Fidelity Degradation</h3> <!-- Sub-section title -->
+
+                <!-- 消融研究的音频网格布局 (2 Columns: Source | Conversion) -->
+                <div class="audio-grid ablation-grid"> <!-- Add specific class 'ablation-grid' -->
+
+                    <!-- Grid Header Row -->
+                    <div class="grid-header source-header">Source</div>
+                    <div class="grid-header conversion-header">Conversion</div> <!-- Header now spans wider area -->
+
+                    <!-- Grid Content Row: Source Cell -->
+                    <div class="grid-cell source-cell">
+                        <div class="audio-info">
+                            <p class="audio-label">id: 3000</p> <!-- *** CHANGE *** -->
+                        </div>
+                        <audio controls class="audio-control">
+                            <source src="samples/Source/male_src_3000_15664_000003_000004.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="audio-context-text">Prompt: Only a little food will be required.</p> <!-- *** CHANGE *** -->
+                    </div>
+
+                    <!-- Grid Content Row: Conversion Cell -->
+                    <div class="grid-cell conversion-cell">
+                        <!-- Conversion 方法的内部网格 (2 columns) -->
+                        <div class="conversion-methods-grid ablation-methods-grid"> <!-- Add 'ablation-methods-grid' -->
+                            <!-- Undefened -->
+                            <div class="conversion-method">
+                                <p class="audio-label">Undefened (id: )</p> <!-- *** CHANGE ID *** -->
+                                <audio controls class="audio-control">
+                                    <source src="audio/ablation_conv_undefened.mp3" type="audio/mpeg"> <!-- *** CHANGE PATH *** -->
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- Ours -->
+                            <div class="conversion-method">
+                                <p class="audio-label highlight-label">VoiceCloak</p> <!-- Assuming 'Ours' is highlighted -->
+                                <audio controls class="audio-control">
+                                    <source src="audio/ablation_conv_ours.mp3" type="audio/mpeg"> <!-- *** CHANGE PATH *** -->
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- Lid -->
+                            <div class="conversion-method">
+                                <p class="audio-label">$\mathcal{L}_{score}$</p> <!-- Using subscript tag -->
+                                <audio controls class="audio-control">
+                                    <source src="audio/ablation_conv_lid.mp3" type="audio/mpeg"> <!-- *** CHANGE PATH *** -->
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- Lid w/o Gender -->
+                            <div class="conversion-method">
+                                <p class="audio-label">$\mathcal{L}_{sem}$</p>
+                                <audio controls class="audio-control">
+                                    <source src="audio/ablation_conv_lid_no_gender.mp3" type="audio/mpeg"> <!-- *** CHANGE PATH *** -->
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- Lctx -->
+                            <div class="conversion-method">
+                                <p class="audio-label">$\mathcal{L}_{sem}$ w/o. Sem-free</p>
+                                <audio controls class="audio-control">
+                                    <source src="audio/ablation_conv_lctx.mp3" type="audio/mpeg"> <!-- *** CHANGE PATH *** -->
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- Lid+Lctx -->
+                            <div class="conversion-method">
+                                <p class="audio-label">$\mathcal{L}_{score} + \mathcal{L}_{sem}$</p>
+                                <audio controls class="audio-control">
+                                    <source src="audio/ablation_conv_lid_lctx.mp3" type="audio/mpeg"> <!-- *** CHANGE PATH *** -->
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        </div> <!-- end .conversion-methods-grid -->
+                    </div> <!-- end .conversion-cell -->
+                </div><!-- end .audio-grid .ablation-grid -->
+
+                <hr class="sample-divider"> <!-- Optional divider between samples -->
+                <!-- 消融研究的音频网格布局 (2 Columns: Source | Conversion) -->
+                <div class="audio-grid ablation-grid"> <!-- Add specific class 'ablation-grid' -->
+                    <!-- Grid Content Row: Source Cell -->
+                    <div class="grid-cell source-cell">
+                        <div class="audio-info">
+                            <p class="audio-label">id: 3000</p> <!-- *** CHANGE *** -->
+                        </div>
+                        <audio controls class="audio-control">
+                            <source src="audio/ablation_source.mp3" type="audio/mpeg"> <!-- *** CHANGE PATH *** -->
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="audio-context-text">Prompt: Only a little food will be required.</p> <!-- *** CHANGE *** -->
+                    </div>  
+
+                    <!-- Grid Content Row: Conversion Cell -->
+                    <div class="grid-cell conversion-cell">
+                        <!-- Conversion 方法的内部网格 (2 columns) -->
+                        <div class="conversion-methods-grid ablation-methods-grid"> <!-- Add 'ablation-methods-grid' -->
+                            <!-- Undefened -->
+                            <div class="conversion-method">
+                                <p class="audio-label">Undefened (id: )</p> <!-- *** CHANGE ID *** -->
+                                <audio controls class="audio-control">
+                                    <source src="audio/ablation_conv_undefened.mp3" type="audio/mpeg"> <!-- *** CHANGE PATH *** -->
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- Ours -->
+                            <div class="conversion-method">
+                                <p class="audio-label highlight-label">VoiceCloak</p> <!-- Assuming 'Ours' is highlighted -->
+                                <audio controls class="audio-control">
+                                    <source src="audio/ablation_conv_ours.mp3" type="audio/mpeg"> <!-- *** CHANGE PATH *** -->
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- Lid -->
+                            <div class="conversion-method">
+                                <p class="audio-label">$\mathcal{L}_{score}$</p> <!-- Using subscript tag -->
+                                <audio controls class="audio-control">
+                                    <source src="audio/ablation_conv_lid.mp3" type="audio/mpeg"> <!-- *** CHANGE PATH *** -->
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- Lid w/o Gender -->
+                            <div class="conversion-method">
+                                <p class="audio-label">$\mathcal{L}_{sem}$</p>
+                                <audio controls class="audio-control">
+                                    <source src="audio/ablation_conv_lid_no_gender.mp3" type="audio/mpeg"> <!-- *** CHANGE PATH *** -->
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- Lctx -->
+                            <div class="conversion-method">
+                                <p class="audio-label">$\mathcal{L}_{sem}$ w/o. Sem-free</p>
+                                <audio controls class="audio-control">
+                                    <source src="audio/ablation_conv_lctx.mp3" type="audio/mpeg"> <!-- *** CHANGE PATH *** -->
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- Lid+Lctx -->
+                            <div class="conversion-method">
+                                <p class="audio-label">$\mathcal{L}_{score} + \mathcal{L}_{sem}$</p>
+                                <audio controls class="audio-control">
+                                    <source src="audio/ablation_conv_lid_lctx.mp3" type="audio/mpeg"> <!-- *** CHANGE PATH *** -->
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        </div> <!-- end .conversion-methods-grid -->
+                    </div> <!-- end .conversion-cell -->
+                </div><!-- end .audio-grid .ablation-grid -->
+                
+            </div> <!-- end .comparison-sample-block -->
         <!-- === END: Audio Sample Section === -->
 
         <footer>

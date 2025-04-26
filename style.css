@@ -418,7 +418,7 @@ hr.major-divider {
 .audio-control {
     display: block;     /* 使播放器占据整行 */
     width: 100%;       /* 播放器宽度 */
-    max-width: 300px; /* 给播放器一个最大宽度，避免太长 */
+    max-width: 450px; /* 给播放器一个最大宽度，避免太长 */
     height: 45px;     /* 标准化播放器高度 */
     margin-bottom: 15px; /* 播放器之间的间距 */
     outline: none;
@@ -509,4 +509,37 @@ hr.sample-divider {
     audio {
         max-width: 100%; /* 在手机上允许播放器更宽 */
     }
+}
+
+/* ============================== */
+/* 消融研究章节特定样式           */
+/* ============================== */
+
+/* --- Ablation 音频网格布局 (2 Columns) --- */
+.ablation-grid {
+    /* display: grid; -- Already set by .audio-grid */
+    /* 定义列：Source(例如1份), Conversion(例如2.5份宽度) - 调整比例! */
+    grid-template-columns: 1fr 2.0fr; /* Make Conversion column wider */
+    /* grid-template-columns: 1fr 2fr; /* Or maybe 1:2 ratio */
+    column-gap: 150px;
+    /* Inherit gap, border-top, padding-top from .audio-grid */
+    /* Override if needed */
+    /* column-gap: 40px; */
+}
+
+/* --- Ablation 嵌套网格 (确保是 2 列) --- */
+.ablation-methods-grid {
+    display: grid; /*-- Already set by .conversion-methods-grid*/
+    grid-template-columns: repeat(2, 1fr); /* Explicitly 2 columns */
+    /* Inherit gap from .conversion-methods-grid */
+    /* Override if needed */
+    column-gap: 25px;
+    /* row-gap: 15px; */
+}
+
+/* 可选：调整 Lsub 标签的垂直对齐（如果需要）*/
+.conversion-method .audio-label sub {
+    vertical-align: sub; /* 尝试改善下标的垂直对齐 */
+    line-height: 1;    /* 防止下标影响行高 */
+    font-size: 0.8em;  /* 下标字体稍小 */
 }
