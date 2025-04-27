@@ -543,3 +543,118 @@ hr.sample-divider {
     line-height: 1;    /* 防止下标影响行高 */
     font-size: 0.8em;  /* 下标字体稍小 */
 }
+
+/* ============================== */
+/* 预算效果章节样式              */
+/* ============================== */
+
+/* --- Prompt Header Style --- */
+p.budget-prompt-header {
+    font-size: 1.2em;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: normal;
+    color: #333;
+    margin-bottom: 10px; /* Space below prompt, above grid */
+    padding-left: 5px;   /* Slight indent */
+    padding-top: 15px;
+    height: 50px;
+}
+
+/* --- 浅色分隔线 --- */
+hr.light-divider {
+    border: 0;
+    height: 1px;
+    background-color: #f0f0f0; /* 非常浅的灰色 */
+    margin: 25px 0;
+}
+.budget-grid-layout {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.2fr 1.2fr; /* Keep your tuned ratios */
+    column-gap: 25px;
+    row-gap: 15px;
+    align-items: center;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+/* --- Grid Header Styles --- */
+/* --- Grid Header Styles --- */
+.budget-grid-layout .grid-header {
+    font-size: 1.1em; /* Adjusted size */
+    font-weight: bold;
+    color: #444;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    border-bottom: 2px solid #ccc;
+    text-align: center; /* Center all headers */
+     min-height: 30px; /* Adjust min height */
+     display: flex; /* Keep flex for alignment */
+     align-items: center; /* Vertically center */
+     justify-content: center; /* Horizontally center */
+}
+
+/* --- Grid Cell Styles --- */
+.budget-grid-layout .grid-cell {
+    padding: 5px 0; /* Basic vertical padding */
+    /* Ensure cells align nicely, especially empty ones */
+     min-height: 55px; /* Example: Force minimum row height based on audio player */
+     display: flex; /* Use flex for alignment within cell */
+     flex-direction: column; /* Stack items vertically if needed */
+     justify-content: center; /* Center content vertically */
+     border-bottom: none; /* <-- KEY CHANGE: Remove bottom border */
+     padding-bottom: 0; /* <-- REMOVE padding related to border if any existed */
+}
+
+/* Specific cell styles */
+.budget-grid-layout .budget-prompt-cell,
+.budget-grid-layout .budget-gt-cell {
+    grid-column: 1 / 2; /* Ensure they stay in the first column */
+    justify-content: flex-start; /* Align content top for these */
+    min-height: auto; /* Let height be determined by content */
+    align-items: center; /* Center text vertically */
+}
+.budget-grid-layout .budget-epsilon-value {
+    grid-column: 2 / 3;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1em;
+    align-items: center; /* Center text vertically */
+    min-height: auto; /* Let text define height */
+}
+.budget-grid-layout .budget-audio-cell {
+    /* Columns 3 and 4 */
+     align-items: center; /* Center audio player horizontally within the cell's flex context */
+     min-height: 55px; /* Match row height */
+}
+.budget-grid-layout .budget-empty-cell {
+     min-height: 10px; /* Minimum height for empty cells */
+      /* border: 1px dashed lightgray; */ /* For debugging layout */
+}
+
+
+/* --- Text & Label Styles within the Budget Grid --- */
+.budget-grid-layout .audio-prompt-text {
+    font-size: 0.9em;
+    color: #555;
+    font-style: italic;
+    padding: 5px 0; /* Add padding */
+    width: 100%; /* Take full cell width */
+}
+.budget-grid-layout .audio-label {
+    font-size: 0.95em;
+    font-weight: normal;
+    color: #444;
+    margin-bottom: 3px;
+    text-align: center; /* Center labels like Undefened, Lid etc. */
+    width: 100%;
+}
+
+.budget-grid-layout .audio-control {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    height: 45px;
+    margin: 5px auto 5px auto;
+    outline: none;
+    box-sizing: border-box;
+}
+

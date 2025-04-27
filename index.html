@@ -45,6 +45,7 @@
                 <a href="#abstract">Abstract</a>
                 <a href="#comparison">Defense<br>Comparisons</a> <!-- Use <br> for line breaks -->
                 <a href="#ablation">Ablation<br>Studies</a>
+                <a href="#perturbation">Perturbation<br>Budgets</a>
             </div>
         </div>
     </nav>
@@ -829,8 +830,227 @@
                         </div> <!-- end .conversion-methods-grid -->
                     </div> <!-- end .conversion-cell -->
                 </div><!-- end .audio-grid .ablation-grid -->
-                
             </div> <!-- end .comparison-sample-block -->
+        </section> <!-- end .ablation-section -->
+
+        <!-- ============================== -->
+        <!-- 扰动预算效果章节 (Perturbation Budget Effect Section) -->
+        <!-- ============================== -->
+        <hr class="major-divider"> <!-- Divider -->
+
+        <section class="budget-section" id="perturbation"> <!-- Added ID -->
+
+            <!-- 1. 章节标题和描述 -->
+            <div class="section-header">
+                <h2>Introducing Adversarial Perturbations with Different Budgets ($\epsilon$)</h2> <!-- Title -->
+                <p>We investigated the impact of varying the perturbation budget to explore the trade-off between defense strength and perturbation imperceptibility. 
+                    Based on below results, we selected a budget $\epsilon = 0.002 $ that offers a reasonable balance between robust defense performance and acceptable perturbation.</p> <!-- Optional description -->
+            </div>
+
+            <!-- 2. 样本块: Budget Comparison -->
+            <div class="comparison-sample-block"> <!-- Reuse existing block style -->
+                <!-- Prompt Text ABOVE the grid -->
+                <p class="budget-prompt-header">Prompt: The second part begins here, "I was a-thinking." The first part divides into two.</p> 
+
+                 <!-- NEW Single Grid Layout -->
+                <div class="budget-grid-layout">
+
+                    <!-- Row 1: Headers -->
+                    <div class="grid-header budget-col1-header">Undefended</div>
+                    <div class="grid-header budget-col2-header">Budget ($\epsilon$)</div>
+                    <div class="grid-header budget-col3-header">Adversarial Ref.</div>
+                    <div class="grid-header budget-col4-header">VoiceCloak</div>
+
+                    <!-- Row 3: GT Audio (Spans only first column) -->
+                    <div class="grid-cell budget-gt-cell">
+                        <audio controls class="audio-control">
+                            <source src="samples/ablation/vc_2035.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="grid-cell budget-epsilon-value">$ \epsilon = 0.0005 $</div>
+                    <div class="grid-cell budget-audio-cell">
+                        <audio controls class="audio-control">
+                            <source src="samples/ablation/x_adv_0.0001_2035.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="grid-cell budget-audio-cell">
+                        <audio controls class="audio-control">
+                            <source src="samples/ablation/ours_0.0005_2035.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <!-- Row 5: Epsilon = 0.001 -->
+                    <div class="grid-cell budget-empty-cell"></div>
+                    <div class="grid-cell budget-epsilon-value">$ \epsilon = 0.001 $</div>
+                    <div class="grid-cell budget-audio-cell">
+                        <audio controls class="audio-control">
+                            <source src="samples/ablation/x_adv_0.0002_2035.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="grid-cell budget-audio-cell">
+                        <audio controls class="audio-control">
+                            <source src="samples/ablation/ours_0.001_2035.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <!-- Row 6: Epsilon = 0.002 -->
+                    <div class="grid-cell budget-empty-cell"></div>
+                    <div class="grid-cell budget-epsilon-value">$ \epsilon = 0.002 $</div>
+                    <div class="grid-cell budget-audio-cell">
+                        <audio controls class="audio-control">
+                            <source src="samples/ablation/x_adv_0.0005_2035.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="grid-cell budget-audio-cell">
+                        <audio controls class="audio-control">
+                            <source src="samples/ablation/ours_0.002_2035.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <!-- Row 7: Epsilon = 0.005 -->
+                    <div class="grid-cell budget-empty-cell"></div>
+                    <div class="grid-cell budget-epsilon-value">$ \epsilon = 0.005 $</div>
+                    <div class="grid-cell budget-audio-cell">
+                        <audio controls class="audio-control">
+                            <source src="samples/ablation/x_adv_0.002_2035.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="grid-cell budget-audio-cell">
+                        <audio controls class="audio-control">
+                            <source src="samples/ablation/ours_0.005_2035.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <!-- Row 8: Epsilon = 0.01 -->
+                    <div class="grid-cell budget-empty-cell"></div>
+                    <div class="grid-cell budget-epsilon-value">$ \epsilon = 0.01 $</div>
+                    <div class="grid-cell budget-audio-cell">
+                        <audio controls class="audio-control">
+                            <source src="samples/ablation/x_adv_0.01_2035.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="grid-cell budget-audio-cell">
+                        <audio controls class="audio-control">
+                            <source src="samples/ablation/ours_0.01_2035.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                </div> <!-- end .budget-grid-layout -->
+
+                <hr class="sample-divider"> <!-- Optional divider between samples -->
+
+                <!-- Prompt Text ABOVE the grid -->
+                <p class="budget-prompt-header">Prompt: The man's eyes looked as if they would burst out of his head.</p> 
+
+                <!-- NEW Single Grid Layout -->
+                <div class="budget-grid-layout">
+
+                    <!-- Row 1: Headers -->
+                    <div class="grid-header budget-col1-header">Undefended</div>
+                    <div class="grid-header budget-col2-header">Budget ($\epsilon$)</div>
+                    <div class="grid-header budget-col3-header">Adversarial Ref.</div>
+                    <div class="grid-header budget-col4-header">VoiceCloak</div>
+
+                    <!-- Row 3: GT Audio (Spans only first column) -->
+                    <div class="grid-cell budget-gt-cell">
+                        <audio controls class="audio-control">
+                            <source src="samples/ablation/vc_8057.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="grid-cell budget-epsilon-value">$ \epsilon = 0.0005 $</div>
+                    <div class="grid-cell budget-audio-cell">
+                        <audio controls class="audio-control">
+                            <source src="samples/ablation/x_adv_0.0001_8057.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="grid-cell budget-audio-cell">
+                        <audio controls class="audio-control">
+                            <source src="samples/ablation/ours_0.0005_8057.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <!-- Row 5: Epsilon = 0.001 -->
+                    <div class="grid-cell budget-empty-cell"></div>
+                    <div class="grid-cell budget-epsilon-value">$ \epsilon = 0.001 $</div>
+                    <div class="grid-cell budget-audio-cell">
+                        <audio controls class="audio-control">
+                            <source src="samples/ablation/x_adv_0.0002_8057.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="grid-cell budget-audio-cell">
+                        <audio controls class="audio-control">
+                            <source src="samples/ablation/ours_0.001_8057.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <!-- Row 6: Epsilon = 0.002 -->
+                    <div class="grid-cell budget-empty-cell"></div>
+                    <div class="grid-cell budget-epsilon-value">$ \epsilon = 0.002 $</div>
+                    <div class="grid-cell budget-audio-cell">
+                        <audio controls class="audio-control">
+                            <source src="samples/ablation/x_adv_0.0005_8057.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="grid-cell budget-audio-cell">
+                        <audio controls class="audio-control">
+                            <source src="samples/ablation/ours_0.005_8057.wav   " type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <!-- Row 7: Epsilon = 0.005 -->
+                    <div class="grid-cell budget-empty-cell"></div>
+                    <div class="grid-cell budget-epsilon-value">$ \epsilon = 0.005 $</div>
+                    <div class="grid-cell budget-audio-cell">
+                        <audio controls class="audio-control">
+                            <source src="samples/ablation/x_adv_0.002_8057.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="grid-cell budget-audio-cell">
+                        <audio controls class="audio-control">
+                            <source src="samples/ablation/ours_0.01_8057.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <!-- Row 8: Epsilon = 0.01 -->
+                    <div class="grid-cell budget-empty-cell"></div>
+                    <div class="grid-cell budget-epsilon-value">$ \epsilon = 0.01 $</div>
+                    <div class="grid-cell budget-audio-cell">
+                        <audio controls class="audio-control">
+                            <source src="samples/ablation/x_adv_0.01_8057.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="grid-cell budget-audio-cell">
+                        <audio controls class="audio-control">
+                            <source src="samples/ablation/ours_0.05_8057.wav" type="audio/wav"> <!-- *** CHANGE PATH *** -->
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                </div> <!-- end .budget-grid-layout -->
+            </div> <!-- end .comparison-sample-block -->
+            
+        </section> <!-- end .budget-section -->
         <!-- === END: Audio Sample Section === -->
 
         <footer>
@@ -846,7 +1066,7 @@
             <li><a href="#comparison">Defense Comparisons</a></li>
             <!-- Add links corresponding to the IDs of your sections -->
             <li><a href="#ablation">Ablation Studies</a></li>
-            <li><a href="#conclusion">Conclusion</a></li>
+            <li><a href="#perturbation">Perturbation Budgets</a></li>
             <!-- Add more links as needed -->
         </ul>
     </aside>
